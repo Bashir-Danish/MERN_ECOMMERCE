@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import SignIn from '../components/SignIn'
 
 function Login() {
   return (
@@ -9,7 +10,7 @@ function Login() {
             <Header/>
         </header>    
         <main className='main'>
-            login
+            <SignIn/>
         </main>
         <footer className='footer'>
             <Footer/>

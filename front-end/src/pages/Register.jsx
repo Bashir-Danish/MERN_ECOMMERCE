@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import SignUp from '../components/SignUp'
 
 function Register() {
   return (
@@ -9,7 +10,7 @@ function Register() {
             <Header/>
         </header>    
         <main className='main'>
-            Register
+            <SignUp/>
         </main>
         <footer className='footer'>
             <Footer/>

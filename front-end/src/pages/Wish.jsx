@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import WishList from '../components/WishList'
 
 function Wish() {
   return (
@@ -9,7 +10,7 @@ function Wish() {
             <Header/>
         </header>    
         <main className='main'>
-            wish
+            <WishList/>
         </main>
         <footer className='footer'>
             <Footer/>

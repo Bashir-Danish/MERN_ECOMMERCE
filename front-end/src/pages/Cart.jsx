@@ -1,4 +1,5 @@
 import React from "react";
+import CartItems from "../components/CartItems";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -8,7 +9,9 @@ function Cart() {
          <header className="header">
             <Header />
          </header>
-         <main className="main">Cart</main>
+         <main className="main">
+            <CartItems/>
+         </main>
          <footer className="footer">
             <Footer />
          </footer>

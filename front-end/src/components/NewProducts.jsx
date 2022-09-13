@@ -13,6 +13,9 @@ function NewProducts() {
                 <NewProduct/>
                 <NewProduct/>
                 <NewProduct/>
+                <NewProduct/>
+                <NewProduct/>
+                <NewProduct/>
             </div>
         </div>
     </div>

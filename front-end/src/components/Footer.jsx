@@ -1,8 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div className='f-container'>
+      <div className="f-row">
+        <div className="f-col">
+          <Link to="/">Instagram</Link>
+        </div>
+        <div className="f-col">
+          <Link to="/">Facebook</Link>
+        </div>
+        <div className="f-col">
+          <Link to="/">Linkedin</Link>
+        </div>
+        <div className="f-col">
+          <Link to="/">Youtube</Link>
+        </div>
+      </div>
+      <div className="f-row">
+        <div className="f-copyright">
+          <span>&copy; 2022. All Rights Reserved. Powered by Dos-Danish</span>
+        </div>
+      </div>
+    </div>
   )
 }
 
