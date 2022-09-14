@@ -1,25 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import BlogDetails from './BlogDetails'
+import BlogLists from './BlogLists'
+import Footer from './Footer'
+import Header from './Header'
 
-function BlogItem() {
-   return (
-      <div className="hb-blog">
-         <Link to="/blog">
-            <h3 className="hb-blogTitle">Title one</h3>
-            <p className="hb-desc">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-               provident sequi incidunt est omnis fugiat, perferendis
-               reprehenderit possimus voluptate voluptates accusamus repellat.
-               Dolor ipsa tempore eaque molestias aperiam exercitationem
-               voluptate?
-            </p>
-            <div className="hb-blogFooter">
-               <span>Admin</span>
-               <span>9.11.2022</span>
-            </div>
-         </Link>
+const BlogItem = () => {
+  return (
+    <div className="wrapper">
+         <header className="header">
+            <Header />
+         </header>
+         <main className="main">
+          <BlogDetails/>
+         </main>
+         <footer className="footer">
+            <Footer />
+         </footer>
       </div>
-   );
+  )
 }
 
-export default BlogItem;
+export default BlogItem

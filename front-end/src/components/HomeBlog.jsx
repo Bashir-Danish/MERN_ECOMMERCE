@@ -2,7 +2,8 @@ import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BlogItem from './BlogItem'
+import HomeBlogItem from './HomeBlogItem'
+
 
 function HomeBlog() {
   return (
@@ -11,9 +12,10 @@ function HomeBlog() {
             <div className="hb-col">
                 <div className="hb-blogDiv">
                     <div className="hb-blogs">
-                        <BlogItem/>
-                        <BlogItem/>
-                        <BlogItem/>
+                        <HomeBlogItem/>
+                        <HomeBlogItem/>
+                        <HomeBlogItem/>
+                        <HomeBlogItem/>
                     </div>
                 </div>
             </div>

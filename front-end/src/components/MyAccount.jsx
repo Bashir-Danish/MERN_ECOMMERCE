@@ -1,6 +1,9 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import AboutMe from "./AboutMe";
+import ChangePassword from "./ChangePassword";
+import MyOrder from "./MyOrder";
 function MyAccount() {
    return (
       <div className="my-container">
@@ -9,22 +12,24 @@ function MyAccount() {
          </div>
          <div className="my-row">
             <Tabs>
-                <TabList>
-                    <Tab>About me</Tab>
-                    <Tab>Orders</Tab>
-                    <Tab>Settings</Tab>
-                </TabList>
+               <div className="tablist">
+                  <TabList>
+                     <Tab>About me</Tab>
+                     <Tab>Orders</Tab>
+                     <Tab>Settings</Tab>
+                  </TabList>
+               </div>
 
-                <TabPanel>
-                    <h2>Any content 1</h2>
-                </TabPanel>
+               <TabPanel>
+                  <AboutMe/>
+               </TabPanel>
 
-                <TabPanel>
-                    <h2>Any content 2</h2>
-                </TabPanel>
-                <TabPanel>
-                    <h2>Any content 3</h2>
-                </TabPanel>
+               <TabPanel>
+                  <MyOrder/>
+               </TabPanel>
+               <TabPanel>
+                  <ChangePassword/>
+               </TabPanel>
             </Tabs>
          </div>
       </div>

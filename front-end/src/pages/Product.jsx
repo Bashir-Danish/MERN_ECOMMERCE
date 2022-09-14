@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import ProductDetails from '../components/ProductDetails'
 
 function Product() {
   return (
@@ -9,7 +10,7 @@ function Product() {
             <Header/>
         </header>    
         <main className='main'>
-            Product
+            <ProductDetails/>
         </main>
         <footer className='footer'>
             <Footer/>

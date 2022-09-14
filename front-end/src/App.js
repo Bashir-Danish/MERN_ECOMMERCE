@@ -7,6 +7,9 @@ import Register from "./pages/Register";
 import Wish from "./pages/Wish";
 import Cart from "./pages/Cart";
 import Account from "./pages/Account";
+import Blog from "./pages/Blog";
+import BlogItem from "./components/BlogItem";
+import Product from "./pages/Product";
 function App() {
    return (
       <>
@@ -19,6 +22,9 @@ function App() {
             <Route path="/wish" element={<Wish/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/account" element={<Account/>}/>
+            <Route path="/blog" element={<Blog/>}/>
+            <Route path="/blog:id" element={<BlogItem/>}/>
+            <Route path="/product:id" element={<Product/>}/>
           </Routes>
         </Router>
       </>

@@ -20,6 +20,9 @@ function Header() {
                      <Link to="/shop" className="menu-link">SHOP</Link>
                   </li>
                   <li>
+                     <Link to="/blog" className="menu-link">BLOG</Link>
+                  </li>
+                  <li>
                      <Link to="/account" className="menu-link">ACCOUNT</Link>
                   </li>
                 </ul>

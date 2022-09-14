@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function CartItme() {
   return (
     <div className="npc-group">
-         <Link to="/product">
+         <Link to="/product:8787097907">
             <div className="npc-body">
                 <img src="./assets/images/product/1.jpg" className="product-img"  alt="" />
             </div>
