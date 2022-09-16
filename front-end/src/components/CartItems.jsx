@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Checkout from "../pages/Checkout";
+import Checkout from "./Checkout";
 import CartItme from "./CartItme";
 
 function CartItems() {

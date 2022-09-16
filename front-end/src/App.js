@@ -10,9 +10,12 @@ import Account from "./pages/Account";
 import Blog from "./pages/Blog";
 import BlogItem from "./components/BlogItem";
 import Product from "./pages/Product";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 function App() {
    return (
       <>
+        <ToastContainer position="bottom-right" limit={1} />
         <Router>
           <Routes>
             <Route path="/" element={<Home/>}/>
