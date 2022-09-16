@@ -1,6 +1,5 @@
 import React from 'react'
 import BlogDetails from './BlogDetails'
-import BlogLists from './BlogLists'
 import Footer from './Footer'
 import Header from './Header'
 

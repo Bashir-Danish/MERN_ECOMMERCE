@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { TransformComponent , TransformWrapper } from "react-zoom-pan-pinch"
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 const ProductDetails = () => {
   const [selectedImg , setSelectedImg] = useState('');
@@ -12,15 +12,16 @@ const ProductDetails = () => {
               <div className="pd-imageDiv">
                 <div className="pd-top">
                   <TransformWrapper>
-                      <TransformComponent>
-                        <img src={selectedImg || './assets/images/product/1.jpg'} className="pd-Img" alt="" />
-                      </TransformComponent>
+                     <TransformComponent>
+                     <img src={selectedImg || './assets/images/product/k1.jpg'} className="pd-Img" alt="" />
+                     </TransformComponent>
                   </TransformWrapper>
+                  
                 </div>
                 <div className="pd-bottom">
-                  <img onClick={()=>setSelectedImg('./assets/images/product/1.jpg')} src="./assets/images/product/1.jpg" className="pd-smallImg" alt="" />
-                  <img onClick={()=>setSelectedImg('./assets/images/product/2.jpg')} src="./assets/images/product/2.jpg" className="pd-smallImg" alt="" />
-                  <img onClick={()=>setSelectedImg('./assets/images/product/3.jpg')} src="./assets/images/product/3.jpg" className="pd-smallImg" alt="" />
+                  <img onClick={()=>setSelectedImg('./assets/images/product/k1.jpg')} src="./assets/images/product/k1.jpg" className="pd-smallImg" alt="" />
+                  <img onClick={()=>setSelectedImg('./assets/images/product/k2.jpg')} src="./assets/images/product/k2.jpg" className="pd-smallImg" alt="" />
+                  <img onClick={()=>setSelectedImg('./assets/images/product/k3.jpg')} src="./assets/images/product/k3.jpg" className="pd-smallImg" alt="" />
                 </div>
               </div>
             </div>
