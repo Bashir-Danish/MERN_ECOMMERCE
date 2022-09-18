@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function App() {
    return (
       <>
-        <ToastContainer position="bottom-right" limit={1} />
+        <ToastContainer position="bottom-right" limit={3} />
         <Router>
           <Routes>
             <Route path="/" element={<Home/>}/>

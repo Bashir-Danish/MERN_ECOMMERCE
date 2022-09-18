@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "rc-slider": "^10.0.1"
+    "rc-slider": "^10.0.1",
+    "surge": "^0.23.1"
   }
 }
