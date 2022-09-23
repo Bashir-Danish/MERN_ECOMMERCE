@@ -5,7 +5,7 @@ import CartItme from "./CartItme";
 
 function CartItems() {
 
-   const [open ,setOpen ] = useState(false);
+   const [open, setOpen] = useState(false);
    return (
       <div className="c-container">
          <div className="w-row">
@@ -13,13 +13,13 @@ function CartItems() {
          </div>
          <div className="c-row">
             <div className="c-col">
-                <div className="w-groups">
-                    <CartItme/>
-                    <CartItme/>
-                    <CartItme/>
-                    <CartItme/>
-                    <CartItme/>
-                </div>
+               <div className="w-groups">
+                  <CartItme />
+                  <CartItme />
+                  <CartItme />
+                  <CartItme />
+                  <CartItme />
+               </div>
             </div>
             <div className="c-col">
                <div className="cart-bill">
@@ -54,7 +54,7 @@ function CartItems() {
                </div>
             </div>
          </div>
-         {open && <Checkout setOpen={setOpen}/>}
+         {open && <Checkout setOpen={setOpen} />}
       </div>
    );
 }

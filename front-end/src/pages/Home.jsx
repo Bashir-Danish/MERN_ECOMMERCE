@@ -13,8 +13,8 @@ function Home() {
         </header>    
         <main className='main'>
             <Intro/>
-            <HomeBlog/>
             <NewProducts/>
+            <HomeBlog/>
         </main>
         <footer className='footer'>
             <Footer/>

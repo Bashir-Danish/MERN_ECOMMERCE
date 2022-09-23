@@ -2,7 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import User from "../models/userModel.js";
 import { catchAsyncError } from "../middleware/catchAsync.js";
-
+import jwt from "jsonwebtoken";
 const userRouter = express.Router();
 
 // ===== Login User ===== //
@@ -13,12 +13,16 @@ userRouter.post(
 
       if (user) {
          if (bcrypt.compareSync(req.body.password, user.password)) {
+            let token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
+               expiresIn: 20*1000,
+            });
+            
             res.status(200).send({
                _id: user._id,
                username: user.username,
                email: user.email,
-               password: user.password,
                isAdmin: user.isAdmin,
+               token,
             });
             return;
          }
@@ -42,11 +46,15 @@ userRouter.post(
          password: bcrypt.hashSync(req.body.password),
       });
       const user = await newUser.save();
+      let token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
+         expiresIn: 86400,
+      });
       res.status(201).send({
          _id: user._id,
          username: user.username,
          email: user.email,
          isAdmin: user.isAdmin,
+         token,
       });
    }),
 );
@@ -82,22 +90,25 @@ userRouter.put(
    "/updatePass",
    catchAsyncError(async (req, res, next) => {
       const user = await User.findById(req.body._id);
-   
+
       if (user) {
          user.username = req.body.username || user.username;
          user.email = req.body.email || user.email;
-         if (req.body.password) {
-            user.password = bcrypt.hashSync(req.body.password);
+         if (req.body.newPassword) {
+            user.password = bcrypt.hashSync(req.body.newPassword);
          }
 
          const updatedUser = await user.save();
-         
+         let token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
+            expiresIn: 86400,
+         });
+
          res.status(201).send({
             _id: updatedUser._id,
             username: updatedUser.username,
             email: updatedUser.email,
-            password: updatedUser.password,
             isAdmin: updatedUser.isAdmin,
+            token
          });
       } else {
          res.status(401).send({ message: "User not found " });

@@ -1,21 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function HomeBlogItem() {
+const HomeBlogItem = ({ blog }) => {
    return (
       <div className="hb-blog">
-         <Link to="/blog">
-            <h3 className="hb-blogTitle">Title one</h3>
-            <p className="hb-desc">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-               provident sequi incidunt est omnis fugiat, perferendis
-               reprehenderit possimus voluptate voluptates accusamus repellat.
-               Dolor ipsa tempore eaque molestias aperiam exercitationem
-               voluptate?
-            </p>
+         <Link to={`/blogs/${blog._id}`}>
+            <h3 className="hb-blogTitle">{blog.title}</h3>
+            <p className="hb-desc">{blog.description}</p>
             <div className="hb-blogFooter">
-               <span>Admin</span>
-               <span>9.11.2022</span>
+               <span>{blog.author}</span>
+               <span>{blog.createdAt.slice(0, 10)}</span>
             </div>
          </Link>
       </div>

@@ -13,6 +13,7 @@ import Product from "./pages/Product";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 function App() {
+  
    return (
       <>
         <ToastContainer position="bottom-right" limit={3} />
@@ -25,9 +26,9 @@ function App() {
             <Route path="/wish" element={<Wish/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/account" element={<Account/>}/>
-            <Route path="/blog" element={<Blog/>}/>
-            <Route path="/blog:id" element={<BlogItem/>}/>
-            <Route path="/product:id" element={<Product/>}/>
+            <Route path="/blogs" element={<Blog/>}/>
+            <Route path="/blogs/:id" element={<BlogItem/>}/>
+            <Route path="/products/:id" element={<Product/>}/>
           </Routes>
         </Router>
       </>

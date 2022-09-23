@@ -1,16 +1,25 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function Star() {
+  const [rating, setRating] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const ratings = await axios.get('/api/v1/ratings/all');
+      setRating(ratings.data);
+    }
+    fetchData();
+  }, []);
   return (
     <div className="f-filterDiv">
-    <div className="f-buttons">
-       <button className="f-button star">1&#9733;</button>
-       <button className="f-button star">2&#9733;</button>
-       <button className="f-button star">3&#9733;</button>
-       <button className="f-button star">4&#9733;</button>
-       <button className="f-button star">5&#9733;</button>
+      <div className="f-buttons">
+        {
+          rating.map((rate)=>(
+            <button className="f-button star" key={rate._id}>{rate.label} &#9733;</button>
+          ))
+        }
+      </div>
     </div>
- </div>
   )
 }
 

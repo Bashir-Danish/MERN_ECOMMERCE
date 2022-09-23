@@ -1,13 +1,15 @@
-import React from "react";
 
-function Category() {
+function Category({ category, filterResult }) {
+
    return (
       <div className="f-filterDiv">
          <div className="f-buttons">
-            <button className="f-button">All</button>
-            <button className="f-button">Men</button>
-            <button className="f-button">Women</button>
-            <button className="f-button">Kids</button>
+            <button className="f-button" onClick={() => filterResult()}>All</button>
+            {
+               category.map((cate) => (
+                  <button className="f-button" onClick={() => filterResult(cate.label)} key={cate._id}>{cate.label}</button>
+               ))
+            }
          </div>
       </div>
    );

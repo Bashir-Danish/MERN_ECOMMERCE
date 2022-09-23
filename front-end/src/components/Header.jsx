@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faBagShopping, faHeart, faRightToBracket} from "@fortawesome/free-solid-svg-icons"
 import {toast} from "react-toastify"
+
+
 function Header() {
   const navigate = useNavigate();
   const userInfo = localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) :null
@@ -28,7 +30,7 @@ function Header() {
                      <Link to="/shop" className="menu-link">SHOP</Link>
                   </li>
                   <li>
-                     <Link to="/blog" className="menu-link">BLOG</Link>
+                     <Link to="/blogs" className="menu-link">BLOG</Link>
                   </li>
                  {
                   userInfo && (
@@ -47,11 +49,11 @@ function Header() {
                     userInfo ? (
                       <>
                       <li>
-                        <a  className="right-menu-link">
+                        <a onClick={logoutHandler} className="right-menu-link">
                           <div className="menu-dev">
                             <FontAwesomeIcon icon={faRightToBracket}/>
                           </div>
-                          <span onClick={logoutHandler}>Logout</span>
+                          <span >Logout</span>
                         </a>
                       </li>
                       <li>

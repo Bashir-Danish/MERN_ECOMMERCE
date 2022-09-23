@@ -21,14 +21,13 @@ function MyAccount() {
                </div>
 
                <TabPanel>
-                  <AboutMe/>
-               </TabPanel>
-
-               <TabPanel>
-                  <MyOrder/>
+                  <AboutMe />
                </TabPanel>
                <TabPanel>
-                  <ChangePassword/>
+                  <MyOrder />
+               </TabPanel>
+               <TabPanel>
+                  <ChangePassword />
                </TabPanel>
             </Tabs>
          </div>

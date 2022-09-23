@@ -1,21 +1,26 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function SubCategory() {
+  const [subcategory, setSubategory] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const subcategories = await axios.get('/api/v1/subcategories/all');
+      setSubategory(subcategories.data);
+    }
+    fetchData();
+  }, []);
   return (
     <div className='f-filterDiv'>
       <div className="f-checkboxes">
-        <div className="f-checkbox">
-          <label htmlFor="dresses"  className='f-filterLabel'>Dresess</label>
-          <input type="checkbox"  name=""className='f-check' id="dresses" />
-        </div>
-        <div className="f-checkbox">
-          <label htmlFor="jeans" className='f-filterLabel'>Jeans</label>
-          <input type="checkbox"  name="" className='f-check' id="jeans" />
-        </div>
-        <div className="f-checkbox">
-          <label htmlFor="t-shirt" className='f-filterLabel'>T-shirt</label>
-          <input type="checkbox"  name="" className='f-check' id="t-shirt" />
-        </div>
+        {
+          subcategory.map((sub)=>(
+            <div className="f-checkbox" key={sub._id}>
+            <label htmlFor={sub.label} className='f-filterLabel'>{sub.label}</label>
+            <input type="checkbox" name="" className='f-check' id={sub.label} />
+          </div>
+          ))
+        }
       </div>
     </div>
   )
