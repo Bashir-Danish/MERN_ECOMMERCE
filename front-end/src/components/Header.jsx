@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink,Link, useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faBagShopping, faHeart, faRightToBracket} from "@fortawesome/free-solid-svg-icons"
 import {toast} from "react-toastify"
@@ -24,18 +24,18 @@ function Header() {
               <div className="h-menu">
                 <ul className="menu-item">
                   <li>
-                     <Link to="/" className="menu-link" >HOME</Link>
+                     <NavLink to="/" className="menu-link" >HOME</NavLink>
                   </li>
                   <li>
-                     <Link to="/shop" className="menu-link">SHOP</Link>
+                     <NavLink to="/shop" className="menu-link">SHOP</NavLink>
                   </li>
                   <li>
-                     <Link to="/blogs" className="menu-link">BLOG</Link>
+                     <NavLink to="/blogs" className="menu-link">BLOG</NavLink>
                   </li>
                  {
                   userInfo && (
                     <li>
-                      <Link to="/account" className="menu-link">ACCOUNT</Link>
+                      <NavLink to="/account" className="menu-link">ACCOUNT</NavLink>
                     </li>
                   )
                  }

@@ -21,6 +21,9 @@ function HomeBlog() {
   return (
     <div className='hb-container' id='blog'>
       <div className="hb-row">
+        <h2 className='npc-title'>Blogs</h2>
+      </div>
+      <div className="hb-row">
         <div className="hb-col">
           <div className="hb-blogDiv">
 

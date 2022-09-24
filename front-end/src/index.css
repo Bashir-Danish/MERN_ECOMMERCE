@@ -9,6 +9,7 @@
 }
 html{
   scroll-behavior: smooth;
+
 }
 
 
@@ -49,6 +50,7 @@ button{
 body{
   font-family: lora;
   background-color: #FBF8F1;
+  
 }
 ::selection{
   background-color: #E9DAC1;

@@ -4,7 +4,7 @@ import Price from './filtersPartials/Price'
 import Star from './filtersPartials/Star'
 import SubCategory from './filtersPartials/SubCategory'
 
-function ShopFilter({category ,filterResult}) {
+function ShopFilter({category ,filterResult,filterRatings,rating,subCategory,changeChecked ,selectedPrice ,changePrice}) {
     return (
         <>
             <div className="f-group">
@@ -13,15 +13,15 @@ function ShopFilter({category ,filterResult}) {
             </div>
             <div className="f-group">
                 <span className='f-groupTitle'>Subcategory</span>
-                <SubCategory />
+                <SubCategory subCategory={subCategory} changeChecked={changeChecked}/>
             </div>
             <div className="f-group">
                 <span className='f-groupTitle'>price</span>
-                <Price />
+                <Price value={selectedPrice} changePrice={changePrice}/>
             </div>
             <div className="f-group">
                 <span className='f-groupTitle'>star rating</span>
-                <Star />
+                <Star filterRatings={filterRatings} rating={rating}/>
             </div>
 
         </>

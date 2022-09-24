@@ -22,6 +22,7 @@
     display: flex;
     flex: 3;
     align-items: center;
+    
 }
 
 .h-logo {
@@ -36,7 +37,7 @@
 }
 
 .h-menu {
-    flex: 2;
+    flex: 4;
 }
 
 .h-col:last-child {
@@ -70,6 +71,9 @@
     font-weight: bold;
     color: #2e2e2e;
     cursor: pointer;
+    padding: 2px;
+    padding: 2px;
+
 }
 
 .right-menu-item li a svg {
@@ -97,6 +101,11 @@
     transform-origin: bottom right;
 }
 
+.menu-item .active {
+    border-bottom: 3px solid #748DA6;
+    border-radius: 3px;
+}
+
 .menu-dev {
     display: flex;
     justify-content: center;
@@ -111,7 +120,7 @@
 .intro-container {
     min-height: calc(100vh - 100px);
     width: 85%;
-    margin:1.5rem auto;
+    margin: 1.5rem auto;
     background: url(../public/assets/Screenshot\ 2022-09-11\ 005854.png);
     background-size: cover;
     position: relative;
@@ -219,9 +228,6 @@
     padding: 30px 0;
     width: 85%;
     min-height: 70vh;
-    box-shadow: -10px 0 8px -5px rgba(0, 0, 0, 0.445), 10px 0 8px -5px rgba(0, 0, 0, 0.445);
-    /* background-color: #f7ecdec2; */
-
 }
 
 .hb-col {
@@ -246,7 +252,8 @@
     width: 90%;
     margin: 0 auto;
     color: #2e2e2e;
-    margin-top: 50px;
+
+
 }
 
 .hb-blog {
@@ -258,6 +265,19 @@
     border-radius: 5px;
     overflow: hidden;
     color: #2e2e2e;
+    transition: all 0.5s;
+    /* From https://css.glass */
+    background: rgba(247, 236, 222, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 1px solid rgba(201, 200, 199, 0.9);
+}
+
+.hb-blog:hover {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
 }
 
 .hb-blogTitle {
@@ -319,15 +339,17 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     transition: all 0.5s;
+
 }
+
 .npc-group:hover {
-    transform: scale(1.07);
+    transform: scale(1.05);
     box-shadow: -10px 0 8px -5px rgba(0, 0, 0, 0.650), 10px 0 8px -5px rgba(0, 0, 0, 0.650);
 }
 
 .product-img {
-    width: 100%;
-    height: auto;
+    height: 350px;
+    max-width: 250px;
 }
 
 .npc-body {
@@ -370,11 +392,12 @@
     text-transform: uppercase;
 }
 
-.npc-Product-Title{
+.npc-Product-Title {
     color: #FBF8F1;
     text-shadow: 0 0 3px #2e2e2e;
     padding: 10px;
 }
+
 .npc-price {
     color: #2e2e2e;
     padding: 10px;
@@ -625,7 +648,7 @@
     font-size: 12px;
 }
 
-.spr-list{
+.spr-list {
     padding: 25px;
     display: flex;
     flex-wrap: wrap;
@@ -807,6 +830,15 @@
 .hb-blogs.blog {
     columns: unset;
     column-gap: unset;
+    padding: 2rem;
+    /* From https://css.glass */
+    /* From https://css.glass */
+    background: rgba(247, 236, 222, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 1px solid rgba(230, 230, 230, 0.9);
 }
 
 .blog-desc {
@@ -862,7 +894,7 @@
 }
 
 .pd-subcategory {
-    font-style: italic;
+    margin-top: 10px;
 }
 
 .pd-otherAction {
@@ -912,6 +944,7 @@
 .pd-buttonsGroup button:hover {
     color: #2e2e2e;
     background-color: #748DA6;
+
 }
 
 .pd-quantity {
@@ -953,15 +986,17 @@
     padding: 5px;
     transition: all 0.5s;
 }
+
 .pd-smallImg:hover {
     transform: scale(1.08);
 }
 
 .pd-wish:hover,
-.pd-cart:hover{
+.pd-cart:hover {
     transform: scale(1.1);
     transition: all 0.5s;
 }
+
 .co-container {
     width: 100%;
     height: 100vh;
@@ -1099,7 +1134,7 @@
     font-size: 20px;
 }
 
-.e-title{
- text-align: center;
- margin-top: 40px;
+.e-title {
+    text-align: center;
+    margin-top: 40px;
 }

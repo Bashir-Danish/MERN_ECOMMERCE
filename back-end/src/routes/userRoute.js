@@ -14,9 +14,9 @@ userRouter.post(
       if (user) {
          if (bcrypt.compareSync(req.body.password, user.password)) {
             let token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
-               expiresIn: 20*1000,
+               expiresIn: 20 * 1000,
             });
-            
+
             res.status(200).send({
                _id: user._id,
                username: user.username,
