@@ -22,7 +22,7 @@
     display: flex;
     flex: 3;
     align-items: center;
-    
+
 }
 
 .h-logo {
@@ -55,6 +55,7 @@
 }
 
 .right-menu-item {
+    margin-top: -20px;
     justify-content: flex-end;
     align-items: flex-end;
 }
@@ -225,7 +226,6 @@
 .hb-blogDiv {
     display: block;
     margin: 1.5rem auto 20px auto;
-    padding: 30px 0;
     width: 85%;
     min-height: 70vh;
 }
@@ -277,7 +277,6 @@
 
 .hb-blog:hover {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-
 }
 
 .hb-blogTitle {
@@ -333,80 +332,111 @@
 }
 
 .npc-group {
+    position: relative;
     width: 250px;
     height: 400px;
     box-shadow: -10px 0 8px -5px rgba(0, 0, 0, 0.445), 10px 0 8px -5px rgba(0, 0, 0, 0.445);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 10px;
     transition: all 0.5s;
-
 }
 
 .npc-group:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: -10px 0 8px -5px rgba(0, 0, 0, 0.650), 10px 0 8px -5px rgba(0, 0, 0, 0.650);
+}
+
+.npc-hover:hover .npc-FooterDiv,
+.npc-hover:hover .cart-FooterDiv {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    /* transition: transform 0.5s cubic-bezier(0, 0.5, 0.5, 1); */
+
 }
 
 .product-img {
     height: 350px;
-    max-width: 250px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .npc-body {
-    height: 300px;
+    height: 350px;
     border-radius: 5px;
 }
 
 .npc-footer {
     position: relative;
-    height: 100px;
-    padding: 0 5px;
+    height: 50px;
+    
 }
 
 .npc-FooterDiv {
     position: absolute;
-    background-color: #00000023;
+    background-color: #748DA685;
+    top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    top: -20px;
-    width: calc(100% - 10px);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    transition: all 0.5s;
+    transition: transform 0.5s cubic-bezier(0, 0, 0.5, 1);
+    transform: scaleY(0);
+    transform-origin: top;
 }
 
 .npc-footerSubDiv {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .npc-category {
     text-align: center;
-    margin-top: 5px;
     color: #FBF8F1;
+    font-size: 30px;
+    text-shadow: 0 0 3px rgba(236, 223, 223, 0.3);
+    font-weight: bold;
     text-transform: uppercase;
+    padding: 10px;
 }
 
 .npc-Product-Title {
-    color: #FBF8F1;
-    text-shadow: 0 0 3px #2e2e2e;
-    padding: 10px;
+    color: #2e2e2e;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 .npc-price {
-    color: #2e2e2e;
+    font-size: 30px;
+    text-shadow: 0 0 3px rgba(236, 223, 223, 0.3);
     padding: 10px;
+    color: #FBF8F1;
 }
 
 .npc-star {
-    font-size: 20px;
-    color: #2e2e2e;
-    margin-left: 30px;
+    font-size: 30px;
+    text-shadow: 0 0 3px rgba(236, 223, 223, 0.3);
+    padding: 10px;
+    color: #FBF8F1;
+}
+
+.no-data {
+    text-align: center;
 }
 
 .f-container {
@@ -699,19 +729,22 @@
     flex: 3;
 }
 
+.cart-body {
+    height: 350px;
+    border-radius: 5px;
+}
+
 .c-col:last-child {
     flex: 1;
 }
 
 .c-otherDiv {
     display: flex;
-    justify-content: center;
-    margin: 10px 0;
-}
-
-.c-otherDiv {
-    display: flex;
     justify-content: space-around;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+
 }
 
 .c-minus,
@@ -721,6 +754,24 @@
     font-size: 25px;
     font-weight: bold;
     margin: 10px;
+}
+
+.cart-FooterDiv {
+    position: absolute;
+    background-color: #748DA685;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.5s cubic-bezier(0, 0, 0.5, 1);
+    transform: scaleY(0);
+    transform-origin: bottom;
 }
 
 .c-minus:hover,
@@ -959,15 +1010,15 @@
 }
 
 .pd-top {
-    height: 70vh;
+    height: auto;
     display: flex;
     justify-content: center;
     /* margin: 0 40px  40px; */
 }
 
 .pd-Img {
-    width: 60%;
-    height: auto;
+    width: 15rem !important;
+    height: 80%;
     box-shadow: 0 0 3px #2e2e2e80;
     margin: 0 auto;
 }
@@ -975,6 +1026,7 @@
 .pd-bottom {
     display: flex;
     justify-content: center;
+    padding: 1.5rem;
     gap: 30px;
 }
 

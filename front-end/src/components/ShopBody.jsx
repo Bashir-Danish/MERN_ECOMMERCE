@@ -113,7 +113,6 @@ function ShopBody() {
                     </div>
                 </div>
                 <div className="sh-col">
-
                     {result ? (<ShopProducts list={list} />) : (<h3 className="e-title">No Produts</h3>)}
                 </div>
             </div>

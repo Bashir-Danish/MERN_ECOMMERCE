@@ -1,11 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+// import axios from 'axios';
+import React, { useState } from 'react'
 import Paginate from 'react-paginate';
 import ShopProduct from './ShopProduct'
 
 function ShopProducts({list}) {
 
-  const [products, setProducts] = useState([]);
   // pagenation
   const [pageNumber, setPageNumber] = useState(0);
   const productPerPage = 6;
@@ -15,15 +14,6 @@ function ShopProducts({list}) {
     setPageNumber(selected)
   }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const resultProduct = await axios.get('/api/v1/products/all');
-      const productData = resultProduct.data;
-      const sortProductData = productData.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-      setProducts(sortProductData );
-    }
-    fetchData();
-  }, []);
   return (
     <div className='spr-container'>
       

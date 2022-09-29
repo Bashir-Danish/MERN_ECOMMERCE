@@ -1,38 +1,82 @@
 import React, { useEffect, useState } from "react";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import { useLocation } from "react-router-dom";
+import ReactImageMagnify from 'react-image-magnify';
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import axios from "axios";
+import { Store } from "../Store";
+import { useContext } from "react";
 
 
 const ProductDetails = () => {
+   const navigate = useNavigate();
    const [selectedImg, setSelectedImg] = useState('');
-
-
+   const {state, dispatch : ctxDispatch} = useContext(Store); 
+   const {cart , wish} = state;
    const [product, setProduct] = useState([]);
    const location = useLocation();
-
-
+   const [size , setSize] = useState('');
+   const [color , setColor] = useState('');
    const id = location.pathname.split("/")[2];
-   const fetchData = async () => {
-      const resposeProdcut = await axios.get(`/api/v1/products/${id}`);
-      setProduct(resposeProdcut.data);
-   }
+
    useEffect(() => {
+      const fetchData = async () => {
+         const resposeProdcut = await axios.get(`/api/v1/products/${id}`);
+         setProduct(resposeProdcut.data);
+      }
       fetchData();
    }, [id]);
+   const addToCartHandle = async()=>{
+      const existsItem = cart.cartItmes.find((x)=> x._id === product._id);
+      const quantity = existsItem ? existsItem.quantity + 1 : 1;
 
+
+      ctxDispatch({
+         type  : 'ADD_TO_CART',
+         payload : {...product , quantity , size ,color}
+      });
+      toast.success('You have successfully added tha product to the cart');
+      navigate('/cart')
+   }
+   const addToWishtHandle = async()=>{
+      const existsItem = wish.wishItmes.find((x)=> x._id === product._id);
+      const quantity = existsItem ? existsItem.quantity : 1;
+      
+      if(existsItem){
+         toast.error('Sorry. You have already added the product to your wish list');
+         return
+      }
+      ctxDispatch({
+         type  : 'ADD_TO_WISH',
+         payload : {...product , quantity }
+      });
+      toast.success('You have successfully added tha product to the wishlist');
+      navigate('/wish')
+   }
+  
    return (
       <div className="pd-container">
          <div className="pd-row">
             <div className="pd-col">
                <div className="pd-imageDiv">
-                  <div className="pd-top">
-                     <TransformWrapper>
-                        <TransformComponent>
-                           <img src={selectedImg || `../${product.image}`} className="pd-Img" alt={product.title} />
-                        </TransformComponent>
-                     </TransformWrapper>
-
+                  <div className="pd-top" >
+                     <ReactImageMagnify className="pd-Img" {...{
+                        smallImage: {
+                           alt: product.title,
+                           isFluidWidth: true,
+                           src: selectedImg || `../${product.image}`,
+                           sizes: '(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px',
+                        },
+                        largeImage: {
+                           src: selectedImg || `../${product.image}`,
+                           isFluidWidth: true,
+                           width: 1200,
+                           height: 1800
+                        },
+                        enlargedImageContainerDimensions: {
+                           width: '250%',
+                           height: '100%'
+                        }
+                     }} />
                   </div>
                   <div className="pd-bottom">
                      <img onClick={() => setSelectedImg(`../${product.image}`)} src={`../${product.image}`} className="pd-smallImg" alt="" />
@@ -64,7 +108,7 @@ const ProductDetails = () => {
                               {
                                  product.sizes?.map((size) => (
                                     <>
-                                       <input type="radio" name="size" id={size.title} value={size.title}/>
+                                       <input onChange={(e) => setSize(e.target.value)} type="radio" name="size" id={size.title} key={size._id} value={size.title} required/>
                                        <label htmlFor={size.title}>{size.title}</label>
                                     </>
                                  ))
@@ -78,7 +122,7 @@ const ProductDetails = () => {
                               {
                                  product.colors?.map((color) => (
                                     <>
-                                       <input type="radio" name="color" id={color.title} value={color.title} />
+                                       <input onChange={(e) => setColor(e.target.value)} type="radio" name="color" id={color.title} key={color._id} value={color.title} required/>
                                        <label htmlFor={color.title} >{color.title}</label>
                                     </>
                                  ))
@@ -93,8 +137,8 @@ const ProductDetails = () => {
                   </div>
                   <div className="pd-group">
                      <div className="pd-buttonsGroup">
-                        <button className="pd-wish">Add to Wish</button>
-                        <button className="pd-cart">Add to Cart</button>
+                        <button className="pd-wish" onClick={addToWishtHandle}>Add to Wish</button>
+                        <button className="pd-cart" onClick={addToCartHandle}>Add to Cart</button>
                      </div>
                   </div>
                </div>

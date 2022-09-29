@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink,Link, useNavigate } from "react-router-dom";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faBagShopping, faHeart, faRightToBracket} from "@fortawesome/free-solid-svg-icons"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBagShopping, faHeart, faRightToBracket} from "@fortawesome/free-solid-svg-icons";
 import {toast} from "react-toastify"
 
 
@@ -49,12 +49,12 @@ function Header() {
                     userInfo ? (
                       <>
                       <li>
-                        <a onClick={logoutHandler} className="right-menu-link">
+                        <Link to="" onClick={logoutHandler} className="right-menu-link">
                           <div className="menu-dev">
                             <FontAwesomeIcon icon={faRightToBracket}/>
                           </div>
                           <span >Logout</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <Link to="/wish" className="right-menu-link">

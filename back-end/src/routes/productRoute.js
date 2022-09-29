@@ -2,7 +2,6 @@ import express from "express";
 import { catchAsyncError } from "../middleware/catchAsync.js";
 import Product from "../models/productModel.js";
 
-
 const productRouter = express.Router();
 
 

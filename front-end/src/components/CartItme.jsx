@@ -5,13 +5,11 @@ import { Link } from 'react-router-dom'
 
 function CartItme() {
    return (
-      <div className="npc-group">
+      <div className="npc-group npc-hover">
          <Link to="/product:8787097907">
-            <div className="npc-body">
+            <div className="cart-body">
                <img src="./assets/images/product/1.jpg" className="product-img" alt="" />
-            </div>
-            <div className="npc-footer">
-               <div className="npc-FooterDiv">
+               <div className="cart-FooterDiv">
                   <span className="npc-category">Dresses</span>
                   <h3 className="npc-Product-Title">Product</h3>
 
@@ -22,7 +20,7 @@ function CartItme() {
                </div>
             </div>
          </Link>
-         <div className="c-otherDiv">
+         <div className="npc-footer c-otherDiv" >
             <div className="c-quantityDiv">
                <button className='c-minus'>-</button>
                <span className="c-quantity">1</span>
@@ -31,6 +29,7 @@ function CartItme() {
             <button className='w-BtnTrash'><FontAwesomeIcon icon={faTrashAlt} className='w-trash' /></button>
          </div>
       </div>
+
    )
 }
 
