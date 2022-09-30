@@ -12,6 +12,7 @@ import BlogItem from "./components/BlogItem";
 import Product from "./pages/Product";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Order from "./pages/Order";
 function App() {
   
    return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/blogs" element={<Blog/>}/>
             <Route path="/blogs/:id" element={<BlogItem/>}/>
             <Route path="/products/:id" element={<Product/>}/>
+            <Route path="/order/:id" element={<Order/>}/>
           </Routes>
         </Router>
       </>

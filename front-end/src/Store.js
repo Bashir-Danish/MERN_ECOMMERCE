@@ -3,30 +3,40 @@ import { createContext, useReducer } from 'react'
 export const Store = createContext();
 const initialState = {
     cart:{
-        cartItmes : localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+        cartItems : localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
     },
     wish:{
-        wishItmes : localStorage.getItem('wishItmes') ? JSON.parse(localStorage.getItem('wishItmes ')) : []
-    }
+        wishItems : localStorage.getItem('wishItems') ? JSON.parse(localStorage.getItem('wishItems')) : []
+    },
 }
+
 function reducer(state, action) {
     switch (action.type) {
         case 'ADD_TO_CART': {
             const newItem = action.payload
-            const existsItem = state.cart.cartItmes.find((item) => item._id === newItem._id);
-            const cartItmes = existsItem ? state.cart.cartItmes.map((item) => item._id === existsItem._id ?
-                newItem : item) : [...state.cart.cartItmes, newItem];
-            localStorage.setItem('cartItems', JSON.stringify(cartItmes));
-            return { ...state, cart: { ...state.cart, cartItmes } }
+            const existsItem = state.cart.cartItems.find((item) => item._id === newItem._id);
+            const cartItems = existsItem ? state.cart.cartItems.map((item) => item._id === existsItem._id ?
+                newItem : item) : [...state.cart.cartItems, newItem];
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            return { ...state, cart: { ...state.cart, cartItems } }
         }
-        
+        case 'REMOVE_FROM_CART':{
+            const cartItems = state.cart.cartItems.filter((item) => item._id !== action.payload._id);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            return { ...state, cart: { ...state.cart, cartItems } }
+        }
         case 'ADD_TO_WISH': {
             const newItem = action.payload
-            const existsItem = state.wish.wishItmes.find((item) => item._id === newItem._id);
-            const wishItmes = existsItem ? state.wish.wishItmes.map((item) => item._id === existsItem._id ?
-                newItem : item) : [...state.wish.wishItmes, newItem];
-            localStorage.setItem('wishItmes', JSON.stringify(wishItmes));
-            return { ...state, wish: { ...state.wish, wishItmes } }
+            const existsItem = state.wish.wishItems.find((item) => item._id === newItem._id);
+            const wishItems = existsItem ? state.wish.wishItems.map((item) => item._id === existsItem._id ?
+                newItem : item) : [...state.wish.wishItems, newItem];
+            localStorage.setItem('wishItems', JSON.stringify(wishItems));
+            return { ...state, wish: { ...state.wish, wishItems } }
+        }
+        case 'REMOVE_FROM_WISH':{
+            const wishItems = state.wish.wishItems.filter((item) => item._id !== action.payload._id);
+            localStorage.setItem('wishItems', JSON.stringify(wishItems));
+            return { ...state, wish: { ...state.wish, wishItems } }
         }
         default:
             return state;

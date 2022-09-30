@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import AboutMe from "./AboutMe";
 import ChangePassword from "./ChangePassword";
-import MyOrder from "./MyOrder";
+import MyOrder from "./MyOrders";
 function MyAccount() {
    return (
       <div className="my-container">

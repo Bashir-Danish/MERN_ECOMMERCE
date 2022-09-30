@@ -17,17 +17,14 @@ function SignUp() {
             return;
         }
         try {
-            await axios.post('/api/v1/users/register', {
+            const response = await axios.post('/api/v1/users/register', {
                 username,
                 email,
                 password,
             });
-            const data = {
-                username,
-                email
-            }
+            
             toast.success("You successfully registere");
-            localStorage.setItem('userInfo', JSON.stringify(data));
+            localStorage.setItem('userInfo', JSON.stringify(response.data));
             navigate('/login')
         } catch (error) {
             toast.error(`Registeration failed  please try again `)
@@ -36,7 +33,7 @@ function SignUp() {
     useEffect(() => {
         if (localStorage.getItem("userInfo")) {
             localStorage.getItem("userInfo");
-            navigate('/')
+            navigate('/login')
         }
     }, [navigate])
     return (

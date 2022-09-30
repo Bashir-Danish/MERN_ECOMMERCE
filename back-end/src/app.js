@@ -23,6 +23,7 @@ import productRouter from "./routes/productRoute.js";
 import categoryRouter from "./routes/categoryRouter.js";
 import subcategoryRouter from "./routes/subcategoryRouter.js";
 import ratingRouter from "./routes/ratingRouter.js";
+import orderRouter from "./routes/orderRoute.js";
 app.use("/api/v1/seed", seedRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/blogs", blogRouter);
@@ -30,6 +31,7 @@ app.use("/api/v1/products", productRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/subcategories", subcategoryRouter);
 app.use("/api/v1/ratings", ratingRouter);
+app.use("/api/v1/orders", orderRouter);
 
 
 

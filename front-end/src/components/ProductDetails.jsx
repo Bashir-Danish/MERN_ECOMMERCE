@@ -10,12 +10,12 @@ import { useContext } from "react";
 const ProductDetails = () => {
    const navigate = useNavigate();
    const [selectedImg, setSelectedImg] = useState('');
-   const {state, dispatch : ctxDispatch} = useContext(Store); 
-   const {cart , wish} = state;
+   const { state, dispatch: ctxDispatch } = useContext(Store);
+   const { cart, wish } = state;
    const [product, setProduct] = useState([]);
    const location = useLocation();
-   const [size , setSize] = useState('');
-   const [color , setColor] = useState('');
+   const [size, setSize] = useState('');
+   const [color, setColor] = useState('');
    const id = location.pathname.split("/")[2];
 
    useEffect(() => {
@@ -25,34 +25,31 @@ const ProductDetails = () => {
       }
       fetchData();
    }, [id]);
-   const addToCartHandle = async()=>{
-      const existsItem = cart.cartItmes.find((x)=> x._id === product._id);
+   const addToCartHandle =() => {
+      const existsItem = cart.cartItems.find((x) => x._id === product._id);
       const quantity = existsItem ? existsItem.quantity + 1 : 1;
 
 
       ctxDispatch({
-         type  : 'ADD_TO_CART',
-         payload : {...product , quantity , size ,color}
+         type: 'ADD_TO_CART',
+         payload: { ...product, quantity, size, color }
       });
       toast.success('You have successfully added tha product to the cart');
       navigate('/cart')
    }
-   const addToWishtHandle = async()=>{
-      const existsItem = wish.wishItmes.find((x)=> x._id === product._id);
+   const addToWishtHandle =() => {
+      const existsItem = wish.wishItems.find((x) => x._id === product._id);
       const quantity = existsItem ? existsItem.quantity : 1;
-      
-      if(existsItem){
-         toast.error('Sorry. You have already added the product to your wish list');
-         return
-      }
+
+
       ctxDispatch({
-         type  : 'ADD_TO_WISH',
-         payload : {...product , quantity }
+         type: 'ADD_TO_WISH',
+         payload: { ...product, quantity }
       });
       toast.success('You have successfully added tha product to the wishlist');
       navigate('/wish')
    }
-  
+
    return (
       <div className="pd-container">
          <div className="pd-row">
@@ -108,7 +105,7 @@ const ProductDetails = () => {
                               {
                                  product.sizes?.map((size) => (
                                     <>
-                                       <input onChange={(e) => setSize(e.target.value)} type="radio" name="size" id={size.title} key={size._id} value={size.title} required/>
+                                       <input onChange={(e) => setSize(e.target.value)} type="radio" name="size" id={size.title} key={size._id} value={size.title} required />
                                        <label htmlFor={size.title}>{size.title}</label>
                                     </>
                                  ))
@@ -122,7 +119,7 @@ const ProductDetails = () => {
                               {
                                  product.colors?.map((color) => (
                                     <>
-                                       <input onChange={(e) => setColor(e.target.value)} type="radio" name="color" id={color.title} key={color._id} value={color.title} required/>
+                                       <input onChange={(e) => setColor(e.target.value)} type="radio" name="color" id={color.title} key={color._id} value={color.title} required />
                                        <label htmlFor={color.title} >{color.title}</label>
                                     </>
                                  ))
